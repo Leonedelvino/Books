@@ -1,61 +1,17 @@
 ﻿@model List<BookModel>
 
+<partial name="_BookIndexList" model="Model" />
 <div class="row">
     @foreach (var book in Model)
     {
         <div class="col-3 mt-3">
-            <div class="card"style="height:650px">
+            <div class="card" style="height:650px">
                 <img class="card-img-top" style="height:380px" src="@book.ImgUrl" alt="@book.Name" asp-append-version="true" />
                 <div class="card-body">
                     <h5 class="card-title text-center">@book.Name</h5>
                     <p class="card-text">Первое издание: @book.Date.Year</p>
                     <p class="card-text">Автор: @book.Author</p>
-                    <p class="card-text dot-ellipsis">
-                        dakosda;sldk;askd
-                        sadasda
-                        sdasd
-                        asd
-                        asd
-                        asda
-                        ds
-                        dasdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111asdsmdsdajksakdjskjdklajsdkljaskdjalksjdlksajdkjskljdlsa
-                        fnlsadjajdkf;lsdkjfasfdfdfaeafesfefa
-                        afefasfasefsafasfeeafasfaesfaesfasfeaesfasfeafse
-                        111111111111111111
-                    </p>
+                    <p class="card-text text-truncate">Описание: @book.Description</p>
                 </div>
                 <div class="card-footer">
                     <a asp-action="GetBook" asp-controller="Books" asp-route-Id="@book.Id" class="btn btn-primary float-right" target="_blank">Скачать</a>
