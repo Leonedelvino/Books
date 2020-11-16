@@ -1,14 +1,11 @@
 ﻿using Books.Models;
 using Microsoft.AspNetCore.StaticFiles;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Books
 {
-    public class BookssManager
+    public class BooksManager
     {
         public string GetBooksType(string extension)
         {

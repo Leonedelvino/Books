@@ -15,9 +15,9 @@ namespace Books.Controllers
     public class BooksController : Controller
     {
         private readonly BooksContext db;
-        private readonly BookssManager manager;
+        private readonly BooksManager manager;
 
-        public BooksController(BooksContext context, BookssManager manager)
+        public BooksController(BooksContext context, BooksManager manager)
         {
             this.db = context;
             this.manager = manager;
@@ -26,7 +26,32 @@ namespace Books.Controllers
         public IActionResult Index()
         {
             var books = this.db.Books.ToList();
-            return this.View(books);
+            var switcher = false;
+            var booksList = new BookViewModel()
+            {
+                Books = books,
+                Switcher = switcher,
+            };
+            return this.View(booksList);
+        }
+
+        [HttpPost]
+        public IActionResult Index(BookViewModel model)
+        {
+            if (model.Switcher == false)
+            {
+                var books = this.db.Books.ToList();
+                model.Switcher = true;
+                model.Books = books;
+                return this.View(model);
+            }
+            else
+            {
+                var books = this.db.Books.ToList();
+                model.Switcher = false;
+                model.Books = books;
+                return this.View(model);
+            }
         }
 
         public IActionResult Details(int Id)

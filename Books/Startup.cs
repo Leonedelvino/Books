@@ -31,7 +31,7 @@ namespace Books
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<BooksContext>(options => options.UseSqlServer(connection));
 
-            services.AddScoped<BookssManager>();
+            services.AddScoped<BooksManager>();
             services.AddControllersWithViews();
         }
 
