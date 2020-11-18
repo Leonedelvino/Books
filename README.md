@@ -28,6 +28,7 @@
 6. extract-loader: Extracts the CSS into a .css file
 7. file-loader: Serves the .css file as a public URL
 8. webpack-serve:  A Webpack development server in a plugin
+
 Выполняем команду: npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader
 
 5. Запуск команды: npm start
