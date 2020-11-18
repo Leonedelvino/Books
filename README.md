@@ -19,9 +19,9 @@
 4. Установка модулей. Каждый модуль описывается поочерёдно. Зайти в папку проекта Books и оттуда вызывать командную строку:
     - Сначала выполняем команду, которая создаёт файл package.json: 
     
-    '''
+    ```
     npm init
-    '''
+    ```
     
 Список всех модулей, подлежащих к установке:
 1. Material Design full package
@@ -35,12 +35,12 @@
 
 Выполняем команду:
 
-'''
+```
 npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader
-'''
+```
 
 5. Запуск команды: 
 
-'''
+```
 npm start
-'''
+```
