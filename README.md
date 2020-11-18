@@ -20,14 +20,14 @@
     - Сначала выполняем команду: npm init (Создаётся в корневой директории файл package.json)
     
 Список всех модулей, подлежащих к установке:
-    1. Material Design full package
-    2. webpack: Bundles Sass and JavaScript:
-    3. sass-loader: Webpack loader to preprocess Sass files
-    4. sass: Sass compiler
-    5. css-loader: Resolves CSS @import and url() paths:
-    6. extract-loader: Extracts the CSS into a .css file
-    7. file-loader: Serves the .css file as a public URL
-    8. webpack-serve:  A Webpack development server in a plugin
- Выполняем команду: npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader
+1. Material Design full package
+2. webpack: Bundles Sass and JavaScript:
+3. sass-loader: Webpack loader to preprocess Sass files
+4. sass: Sass compiler
+5. css-loader: Resolves CSS @import and url() paths:
+6. extract-loader: Extracts the CSS into a .css file
+7. file-loader: Serves the .css file as a public URL
+8. webpack-serve:  A Webpack development server in a plugin
+Выполняем команду: npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader
 
 5. Запуск команды: npm start
