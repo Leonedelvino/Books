@@ -32,6 +32,9 @@
 6. extract-loader: Extracts the CSS into a .css file
 7. file-loader: Serves the .css file as a public URL
 8. webpack-serve:  A Webpack development server in a plugin
+9. @babel/core
+10. babel-loader: Compiles JavaScript files using babel
+11. @babel/preset-env: Preset for compiling es2015
 
 Выполняем команду:
 
