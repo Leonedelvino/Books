@@ -16,16 +16,18 @@
     - Справа от кнопки "Change Connection" выпадающее окно с возможностью выбора базы данных. Находим Books.Db
     - Находим, в той же строке, где Change Connection, Execute (зелёная стрелка) или прожимаем Ctrl+Shift+E
 
-4. Установка модулей. Каждый модуль описывается поочерёдно, сначала указывается название модуля, потом указывается команда, которую нужно внести в cmd или командную строку. Прежде чем вписывать команду необходимо зайти в папку проекта Books и оттуда выполнять все команды:
+4. Установка модулей. Каждый модуль описывается поочерёдно. Зайти в папку проекта Books и оттуда вызывать командную строку:
     - Сначала выполняем команду: npm init (Создаётся в корневой директории файл package.json)
-    - !!! Вы можете установить все модули одной командой в консоли, но перед этим ознакомтесь со всем списком модулей: npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader
-    1. Material Design full package: npm i material-components-web
-    2. webpack: Bundles Sass and JavaScript: 
-    3. sass-loader: Webpack loader to preprocess Sass files:
-    4. sass: Sass compiler:
+    
+Список всех модулей, подлежащих к установке:
+    1. Material Design full package
+    2. webpack: Bundles Sass and JavaScript:
+    3. sass-loader: Webpack loader to preprocess Sass files
+    4. sass: Sass compiler
     5. css-loader: Resolves CSS @import and url() paths:
-    6. extract-loader: Extracts the CSS into a .css file:
-    7. file-loader: Serves the .css file as a public URL:
-    8. webpack-serve:  A Webpack development server in a plugin:
+    6. extract-loader: Extracts the CSS into a .css file
+    7. file-loader: Serves the .css file as a public URL
+    8. webpack-serve:  A Webpack development server in a plugin
+ Выполняем команду: npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader
 
 5. Запуск команды: npm start
