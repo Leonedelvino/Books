@@ -30,11 +30,12 @@
 9. @babel/core
 10. babel-loader: Compiles JavaScript files using babel
 11. @babel/preset-env: Preset for compiling es2015
+12. Autoprefixer: PostCSS plugin to parse CSS and add vendor prefixes to CSS rules using values from Can I Use.
 
 Выполняем команду:
 
 ```
-npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader
+npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader autoprefixer
 ```
 
 5. Запуск команды: 
