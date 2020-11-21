@@ -17,6 +17,11 @@
     - Находим, в той же строке, где Change Connection, Execute (зелёная стрелка) или прожимаем Ctrl+Shift+E
 
 4. Установка модулей. Каждый модуль описывается поочерёдно. Зайти в папку проекта Books и оттуда вызывать командную строку:
+Чтобы создать конфигурационный файл, выполняем команду:
+
+```
+npm init
+```
 
 Список всех модулей, подлежащих к установке:
 1. Material Design full package
@@ -35,7 +40,7 @@
 Выполняем команду:
 
 ```
-npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader autoprefixer
+npm install --save-dev webpack material-components-web webpack-cli webpack-serve css-loader sass-loader sass extract-loader file-loader autoprefixer babel-loader
 ```
 
 5. Запуск команды: 
