@@ -10,7 +10,5 @@ namespace GeneralSemantics.Data
             : base(options)
         {
         }
-
-        public DbSet<ArticleModel> Articles { get; set; }
     }
 }

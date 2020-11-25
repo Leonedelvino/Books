@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace GeneralSemantics.Models
+namespace Books.Models
 {
     public class ArticleModel
     {
@@ -15,7 +15,6 @@ namespace GeneralSemantics.Models
         [Required]
         [Display(Name = "Описание")]
         public string Description { get; set; }
-
 
         [Required]
         [Display(Name = "Время публикации")]
@@ -40,6 +39,10 @@ namespace GeneralSemantics.Models
 
         [Required]
         public string ArticleSection { get; set; }
+
+        [Required]
+        public int BookId { get; set; }
+        public BookModel Book { get; set; }
 
     }
 }

@@ -1,40 +1,19 @@
-﻿@model ArticleModel
+﻿@model Books.Models.ArticleModel
 
 
 <form method="post" enctype="multipart/form-data" asp-controller="Article" asp-action="Create">
     <div class="form-group row">
-        <label asp-for="FullTitle" class="col-md-2 col-form-label"></label>
+        <label asp-for="Title" class="col-md-2 col-form-label"></label>
         <div class="col-md-5">
-            <input type="text" asp-for="FullTitle" class="form-control" />
-            <span asp-validation-for="FullTitle" class="text-danger"></span>
+            <input type="text" asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">
-        <label asp-for="ShortTitle" class="col-md-2 col-form-label"></label>
+        <label asp-for="Description" class="col-md-2 col-form-label"></label>
         <div class="col-md-5">
-            <input type="text" asp-for="ShortTitle" class="form-control" />
-            <span asp-validation-for="ShortTitle" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label asp-for="ShortTitle" class="col-md-2 col-form-label"></label>
-        <div class="col-md-5">
-            <input type="text" asp-for="ShortTitle" class="form-control" />
-            <span asp-validation-for="ShortTitle" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label asp-for="DetailedDescription" class="col-md-2 col-form-label"></label>
-        <div class="col-md-5">
-            <input type="text" asp-for="DetailedDescription" class="form-control" />
-            <span asp-validation-for="DetailedDescription" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label asp-for="ShortDescription" class="col-md-2 col-form-label"></label>
-        <div class="col-md-5">
-            <input type="text" asp-for="ShortDescription" class="form-control" />
-            <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            <input type="text" asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">

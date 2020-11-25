@@ -13,4 +13,6 @@
 	[Cover]               VARBINARY(MAX) NOT NULL,
 	[CoversMimeType]      NVARCHAR       NULL,
 	[ArticleSection]      VARCHAR(MAX)   NOT NULL,
+	[BookId]              INT            NOT NULL,
+    CONSTRAINT [FK_Article_Books] FOREIGN KEY ([BookId]) REFERENCES [Books]([Id]),
 )

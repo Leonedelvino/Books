@@ -1,4 +1,5 @@
-﻿using GeneralSemantics.Data;
+﻿using Books.Models;
+using GeneralSemantics.Data;
 using GeneralSemantics.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +14,10 @@ namespace GeneralSemantics.Controllers
 {
     public class ArticleController : Controller
     {
-        private readonly ApplicationDbContext db;
+        private readonly BooksContext db;
         private readonly GeneralSemanticsManager manager;
 
-        public ArticleController(ApplicationDbContext db, GeneralSemanticsManager manager)
+        public ArticleController(BooksContext db, GeneralSemanticsManager manager)
         {
             this.db = db;
             this.manager = manager;

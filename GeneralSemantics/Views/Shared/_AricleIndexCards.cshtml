@@ -8,10 +8,10 @@
             <img class="card-img-top d-none d-lg-block d-xl-none" style="height:370px" src="@Url.Action("GetImage", "Article", new { article.Id })" asp-append-version="true" />
             <img class="card-img-top d-none d-md-block d-lg-none d-xl-none" style="height:250px" src="@Url.Action("GetImage", "Article", new { article.Id })" asp-append-version="true" />
             <div class="card-body">
-                <h5 class="card-title text-center">@article.FullTitle</h5>
+                <h5 class="card-title text-center">@article.Title</h5>
                 <p class="card-text">Первое издание: @article.DatePosted</p>
                 <p class="card-text">Автор: @article.Author</p>
-                <p class="card-text text-truncate">Описание: @article.ShortDescription</p>
+                <p class="card-text text-truncate">Описание: @article.Description</p>
             </div>
             <div class="card-footer">
                 <div class="row ">
