@@ -1,4 +1,4 @@
-# Books - project
+# OpenEducation - project
 ## Начало
 1. Проверка наличия необходимого софта для работы с проектом:
     - Node.js (last version)
