@@ -1,0 +1,28 @@
+﻿@model ArticlesViewModel
+
+@foreach (var article in Model.Articels)
+{
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mt-3">
+        <div class="card" style="height:700px">
+            <img class="card-img-top d-none d-xl-block" style="height:380px" src="@Url.Action("GetImage", "Article", new { article.Id })" asp-append-version="true" />
+            <img class="card-img-top d-none d-lg-block d-xl-none" style="height:370px" src="@Url.Action("GetImage", "Article", new { article.Id })" asp-append-version="true" />
+            <img class="card-img-top d-none d-md-block d-lg-none d-xl-none" style="height:250px" src="@Url.Action("GetImage", "Article", new { article.Id })" asp-append-version="true" />
+            <div class="card-body">
+                <h5 class="card-title text-center">@article.FullTitle</h5>
+                <p class="card-text">Первое издание: @article.DatePosted</p>
+                <p class="card-text">Автор: @article.Author</p>
+                <p class="card-text text-truncate">Описание: @article.ShortDescription</p>
+            </div>
+            <div class="card-footer">
+                <div class="row ">
+                    <div class="col-xl-6 col-lg-12 text-lg-center">
+                        <a asp-action="GetBook" asp-controller="Books" asp-route-Id="@article.Id" class="btn btn-primary" target="_blank">Скачать</a>
+                    </div>
+                    <div class="col-xl-6 col-lg-12 text-lg-center mt-lg-3 mt-xl-0">
+                        <a asp-action="" asp-controller="" asp-route-Id="@article.Id" class="btn btn-primary" target="_blank">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
