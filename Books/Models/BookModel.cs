@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace Books.Models
 {
     public class BookModel
@@ -24,5 +25,7 @@ namespace Books.Models
 
         [StringLength(2048, ErrorMessage = "Привышен лимит максимально длинны пути, сократите путь к файлу")]
         public string ImgUrl { get; set; }
+
+        public ArticleModel Article { get; set; }
     }
 }
