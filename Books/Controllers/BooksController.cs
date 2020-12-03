@@ -56,9 +56,18 @@ namespace Books.Controllers
 
         public IActionResult Details(int Id)
         {
-            var book = this.db.Books.Find(Id);
-            return this.View(book);
+            var books = this.db.Books.Find(Id);
+            return this.View(books);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var model = this.db.Books.ToList();
+            return this.View(model);
+        }
+
+
 
         public IActionResult GetBook(int Id)
         {

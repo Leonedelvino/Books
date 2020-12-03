@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-
+using Books.Enums;
 
 namespace Books.Models
 {
@@ -21,10 +21,12 @@ namespace Books.Models
 
         public DateTime Date { get; set; }
 
-        public string Language { get; set; }
+        public BookLanguage Language { get; set; }
 
-        [StringLength(2048, ErrorMessage = "Привышен лимит максимально длинны пути, сократите путь к файлу")]
-        public string ImgUrl { get; set; }
+        [Display(Name = "Обложка")]
+        public byte[] Cover { get; set; }
+
+        public BookType Type { get;set; }
 
         public ArticleModel Article { get; set; }
     }

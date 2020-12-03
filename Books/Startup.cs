@@ -29,9 +29,13 @@ namespace Books
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<BooksContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<BooksContext>(options =>
+                options.UseSqlServer(connection));
 
             services.AddScoped<BooksManager>();
+
+            services.AddMemoryCache();
+
             services.AddControllersWithViews();
         }
 

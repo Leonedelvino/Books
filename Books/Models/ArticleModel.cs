@@ -25,17 +25,13 @@ namespace Books.Models
         [Required]
         [Display(Name = "Автор")]
         public string Author { get; set; }
+
         [Display(Name = "Редактор")]
         public string Readactor { get; set; }
 
         [Required]
         [Display(Name = "Язык")]
         public string Language { get; set; }
-
-        [Required]
-        [Display(Name = "Обложка")]
-        public byte[] Cover { get; set; }
-        public string CoversMimeType { get; set; }
 
         [Required]
         public string ArticleSection { get; set; }
