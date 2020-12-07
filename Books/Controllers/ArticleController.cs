@@ -1,73 +1,56 @@
 ﻿using Books.Models;
-using GeneralSemantics.Data;
-using GeneralSemantics.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.StaticFiles;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace GeneralSemantics.Controllers
+namespace Books.Controllers
 {
     public class ArticleController : Controller
     {
         private readonly BooksContext db;
-        private readonly GeneralSemanticsManager manager;
 
-        public ArticleController(BooksContext db, GeneralSemanticsManager manager)
+        public ArticleController(BooksContext db)
         {
             this.db = db;
-            this.manager = manager;
         }
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             var switcher = false;
+            var articles = this.db.Articles.ToList();
             var model = new ArticlesViewModel()
             {
-                Switcher = switcher
+                Switcher = switcher,
+                Articles = articles,
             };
 
-            return View(model);
-        }
-        
-        public ActionResult GetImage(int articleId)
-        {
-            var article = db.Articles.FirstOrDefault(_ => _.Id == articleId);
-            return File(article.Cover, article.CoversMimeType);
+            return this.View(model);
         }
         
         [HttpPost]
-        public ActionResult Index(ArticlesViewModel model)
+        public IActionResult Index(ArticlesViewModel model)
         {
             if(model.Switcher == false)
             {
                 var articles = db.Articles.ToList();
                 model.Switcher = true;
-                model.Articels = articles;
+                model.Articles = articles;
                 return View(model);
             }
             else
             {
                 var articles = db.Articles.ToList();
                 model.Switcher = false;
-                model.Articels = articles;
+                model.Articles = articles;
                 return View(model);
             }
         }
-
-        public ActionResult Article(int id)
+        
+        public IActionResult Create()
         {
             return View();
-        }
-        
-        public ActionResult Create()
-        {
-            var model = db.Articles.ToList();
-            return View(model);
         }
 
         [HttpPost]
@@ -78,7 +61,7 @@ namespace GeneralSemantics.Controllers
             {
             }
 
-            var article = collection.Keys;
+            byte[] imageData = null;
 
             if(collection.Files != null && collection.Files.Count > 0)
             {

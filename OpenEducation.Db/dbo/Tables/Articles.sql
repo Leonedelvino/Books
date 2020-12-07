@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Article]
+﻿CREATE TABLE [dbo].[Articles]
 (
     [Id]                  INT            NOT NULL PRIMARY KEY,
 	[Title]               NVARCHAR       NULL,
@@ -8,8 +8,7 @@
 	[Author]              NVARCHAR       NOT NULL,
 	[Redactor]            NVARCHAR       NULL,
 	[Language]            INT            NOT NULL,
-	[Cover]               VARBINARY(MAX) NOT NULL,
 	[ArticleSection]      VARCHAR(MAX)   NOT NULL,
 	[BookId]              INT            NOT NULL,
-    CONSTRAINT [FK_Article_Books] FOREIGN KEY ([BookId]) REFERENCES [Books]([Id]),
+    CONSTRAINT [FK_Articles_Books] FOREIGN KEY ([BookId]) REFERENCES [Books]([Id]),
 )

@@ -1,11 +1,11 @@
 ﻿@model ArticlesViewModel
 
-@foreach (var article in Model.Articels)
+@foreach (var article in Model.Articles)
 {
     <div class="card mb-3 mt-3">
         <div class="row">
             <div class="col-md-4">
-                <img class="mx-auto d-block" style="height:250px" src="@article.Cover" alt="@article." asp-append-version="true" />
+                <img class="mx-auto d-block" style="height:250px" src="@article." alt="@article." asp-append-version="true" />
             </div>
             <div class="col-md-8">
                 <div class="card-body">

@@ -65,9 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="scripts\referenceData\Books.sql" />
+    <None Include="OpenEducation.Db.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Books.sql" />
-    <Build Include="dbo\Tables\Article.sql" />
+    <Build Include="dbo\Tables\Articles.sql" />
   </ItemGroup>
 </Project>

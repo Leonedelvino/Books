@@ -27,7 +27,7 @@ namespace Books.Models
         public string Author { get; set; }
 
         [Display(Name = "Редактор")]
-        public string Readactor { get; set; }
+        public string Redactor { get; set; }
 
         [Required]
         [Display(Name = "Язык")]
@@ -39,6 +39,5 @@ namespace Books.Models
         [Required]
         public int BookId { get; set; }
         public BookModel Book { get; set; }
-
     }
 }
