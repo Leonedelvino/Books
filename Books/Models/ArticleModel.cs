@@ -35,6 +35,7 @@ namespace Books.Models
 
         [Required]
         public string ArticleSection { get; set; }
+        public string CoverPath { get; set; }
 
         [Required]
         public int BookId { get; set; }

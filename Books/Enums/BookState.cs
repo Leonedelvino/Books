@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Books.Enums
 {
-    public enum BookType
+    public enum BookState
     {
-        Complited,
-        Unfinished
+        Unfinished,
+        Complited
     }
 }

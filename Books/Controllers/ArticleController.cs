@@ -1,19 +1,23 @@
 ﻿using Books.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Books.Controllers
 {
     public class ArticleController : Controller
     {
         private readonly BooksContext db;
+        private readonly IWebHostEnvironment appEnvironment;
 
-        public ArticleController(BooksContext db)
+        public ArticleController(BooksContext db, IWebHostEnvironment appEnvironment)
         {
             this.db = db;
+            this.appEnvironment = appEnvironment;
         }
 
         public IActionResult Index()
@@ -28,11 +32,11 @@ namespace Books.Controllers
 
             return this.View(model);
         }
-        
+
         [HttpPost]
         public IActionResult Index(ArticlesViewModel model)
         {
-            if(model.Switcher == false)
+            if (model.Switcher == false)
             {
                 var articles = db.Articles.ToList();
                 model.Switcher = true;
@@ -47,7 +51,7 @@ namespace Books.Controllers
                 return View(model);
             }
         }
-        
+
         public IActionResult Create()
         {
             return View();
@@ -55,22 +59,21 @@ namespace Books.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(ArticleModel model, IFormFile file)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
             }
 
-            byte[] imageData = null;
-
-            if(collection.Files != null && collection.Files.Count > 0)
+            var path = "/ArticleCovers/" + file.FileName;
+            using (var fileStream = new FileStream(appEnvironment.WebRootPath + path, FileMode.Create))
             {
-                var fileName = Path.GetFileName(collection.Files.FirstOrDefault().FileName);
-                var fileExtension = Path.GetExtension(fileName);
-                var newFileName = String.Concat(Convert.ToString(Guid.NewGuid()), fileExtension);
+                await file.CopyToAsync(fileStream);
             }
-
-            return View();
+            model.CoverPath = path;
+            db.Articles.Add(model);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)

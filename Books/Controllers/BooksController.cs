@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Net.Mime;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.Http;
 
 namespace Books.Controllers
 {
@@ -16,11 +17,13 @@ namespace Books.Controllers
     {
         private readonly BooksContext db;
         private readonly BooksManager manager;
+        private readonly IWebHostEnvironment appEnvironment;
 
-        public BooksController(BooksContext context, BooksManager manager)
+        public BooksController(BooksContext context, BooksManager manager, IWebHostEnvironment appEnvironment)
         {
             this.db = context;
             this.manager = manager;
+            this.appEnvironment = appEnvironment;
         }
 
         public IActionResult Index()
@@ -67,7 +70,24 @@ namespace Books.Controllers
             return this.View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Create(BookModel model, IFormFile file)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.View();
+            }
 
+            var path = "/BookCovers/" + file.FileName;
+            using (var fileStream = new FileStream(appEnvironment.WebRootPath + path, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+            model.CoverPath = "~/img" + file;
+            db.Books.Add(model);
+            db.SaveChanges();
+            return this.RedirectToAction("Index");
+        }
 
         public IActionResult GetBook(int Id)
         {

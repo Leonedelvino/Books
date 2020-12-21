@@ -1,6 +1,5 @@
 ﻿@model ArticleModel
 
-
 <form method="post" enctype="multipart/form-data" asp-controller="Article" asp-action="Create">
     <div class="form-group row">
         <label asp-for="Title" class="col-md-2 col-form-label"></label>
@@ -42,6 +41,13 @@
         <div class="col-md-5">
             <textarea type="text" asp-for="ArticleSection" class="form-control"></textarea>
             <span asp-validation-for="ArticleSection" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="CoverPath" class="col-md-2 col-form-label"></label>
+        <div class="col-md-5">
+            <input type="file" asp-for="CoverPath" class="form-control" />
+            <span asp-validation-for="CoverPath" class="text-danger"></span>
         </div>
     </div>
     <input type="submit" class="btn btn-primary" value="Добавить" />

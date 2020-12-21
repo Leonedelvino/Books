@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Books.Enums;
 
@@ -22,12 +23,10 @@ namespace Books.Models
         public DateTime Date { get; set; }
 
         public BookLanguage Language { get; set; }
+        public string CoverPath { get; set; }
 
-        [Display(Name = "Обложка")]
-        public byte[] Cover { get; set; }
+        public BookState Type { get;set; }
 
-        public BookType Type { get;set; }
-
-        public ArticleModel Article { get; set; }
+        public virtual List<ArticleModel> Article { get; set; }
     }
 }
