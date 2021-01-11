@@ -26,35 +26,15 @@ namespace Books.Controllers
             this.appEnvironment = appEnvironment;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(bool switcher)
         {
             var books = this.db.Books.ToList();
-            var switcher = false;
             var booksList = new BookViewModel()
             {
                 Books = books,
                 Switcher = switcher,
             };
             return this.View(booksList);
-        }
-
-        [HttpPost]
-        public IActionResult Index(BookViewModel model)
-        {
-            if (model.Switcher == false)
-            {
-                var books = this.db.Books.ToList();
-                model.Switcher = true;
-                model.Books = books;
-                return this.View(model);
-            }
-            else
-            {
-                var books = this.db.Books.ToList();
-                model.Switcher = false;
-                model.Books = books;
-                return this.View(model);
-            }
         }
 
         public IActionResult Details(int Id)
