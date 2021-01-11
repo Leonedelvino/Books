@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using Books.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using System.Net.Mime;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.AspNetCore.Http;
 
 namespace Books.Controllers
@@ -46,7 +41,7 @@ namespace Books.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var model = this.db.Books.ToList();
+            var model = new BookModel();
             return this.View(model);
         }
 
@@ -58,12 +53,12 @@ namespace Books.Controllers
                 return this.View();
             }
 
-            var path = "/BookCovers/" + file.FileName;
+            var path = "/img/BookCovers/" + file.FileName;
             using (var fileStream = new FileStream(appEnvironment.WebRootPath + path, FileMode.Create))
             {
                 await file.CopyToAsync(fileStream);
             }
-            model.CoverPath = "~/img" + file;
+            model.CoverPath = "~/img/BookCovers/" + file.FileName;
             db.Books.Add(model);
             db.SaveChanges();
             return this.RedirectToAction("Index");

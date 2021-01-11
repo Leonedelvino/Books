@@ -5,7 +5,7 @@
     [Description] NVARCHAR (MAX)                 NULL,
     [Date]        DATE                           NOT NULL,
     [Language]    INT                            NOT NULL,
-    [Cover]       VARBINARY (2048)               NULL,
+    [CoverPath]       NVARCHAR (2048)                NULL,
     [Type]        INT                            NOT NULL,
 
     PRIMARY KEY CLUSTERED ([Id] ASC), 
