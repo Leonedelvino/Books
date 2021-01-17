@@ -5,6 +5,7 @@ using Books.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Books.Enums;
 
 namespace Books.Controllers
 {
@@ -39,9 +40,13 @@ namespace Books.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create(
+            [FromQuery] BookTranslationState type)
         {
-            var model = new BookModel();
+            var model = new BookModel()
+            {
+                Type = type
+            };
             return this.View(model);
         }
 

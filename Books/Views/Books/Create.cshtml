@@ -1,8 +1,5 @@
 ﻿@model BookModel
 @using Books.Enums;
-@{ 
-    var bookTranslationState = BookTranslationState.Законеченный;
-}
 <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="Name"></label>
@@ -26,36 +23,38 @@
     </div>
     <div class="form-group">
         <label asp-for="Language"></label>
-        <select asp-for="Language" asp-items="@Html.GetEnumSelectList<Books.Enums.BookLanguage>()"></select>
+        <select asp-for="Language" asp-items="@Html.GetEnumSelectList<BookLanguage>()"></select>
         <span asp-validation-for="Language" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Type"></label>
-        <select onchange="changedSelectElement()" id="translationState" asp-for="Type" asp-items="@Html.GetEnumSelectList<Books.Enums.BookTranslationState>()"></select>
+        <select onchange="changedSelectElement()" id="translationState" asp-for="Type" asp-items="@Html.GetEnumSelectList<BookTranslationState>()"></select>
         <span asp-validation-for="Type" class="text-danger"></span>
     </div>
-    @if (bookTranslationState == 0)
+    @if (Model.Type == 0)
     {
         <div class="form-group">
-            <input type="file" class="form-control" name="file" />
+            <input type="file" class="form-control-file" name="file" />
         </div>
     }
     else
     {
-
     }
     <input type="submit" class="btn btn-primary" />
 </form> 
 
 <script>
     function changedSelectElement() {
-        var storage = localStorage.setItem('translationState', translationState.options[translationState.selectedIndex].value)    
-        if (storage == "Законченный") {
-            bookTranslationState = 0;
+        const bookState = translationState.options[translationState.selectedIndex].text
+        var url = new URL(window.location.href); 
+        if (state == "Законченный") {
+            url.searchParams.set('type', bookState)
+            window.history.replaceState(null, null, url);
             location.reload();
         }
         else {
-            bookTranslationState = 1;
+            url.searchParams.set('type', bookState)
+            window.history.replaceState(null, null, url);
             location.reload();
         }
     }
